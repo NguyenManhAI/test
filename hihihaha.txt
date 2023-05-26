@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+int main()
+{
+	long long int N=10e9+7;
+    int n;
+    cin>>n;
+    vector<long long int> a;
+    for(int i=0;i<n;i++)
+    {
+        long long int x;
+        cin>>x;
+        a.push_back(x);
+    }
+    
+    long long int sumP=0;
+    for(int i=0;i<n;i++)
+    {   
+        long long int sum=0;
+        for(int j=i;j<n;j++)
+        {
+            sum+=a[j];
+            sumP+=(int)pow(2,sum)%N;
+        }
+    }
+    cout<<sumP%N;
+}
